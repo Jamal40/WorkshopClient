@@ -16,7 +16,10 @@ export class StatusFormComponent implements OnInit {
       Validators.pattern(/^01[1|5|2|0][0-9]{8}$/),
     ]),
     sourceId: new FormControl('', Validators.required),
-    langId: new FormControl('', Validators.required),
+    langId: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^(1|2)$/),
+    ]),
   });
   constructor(private checkStatusService: CheckStatusService) {}
 

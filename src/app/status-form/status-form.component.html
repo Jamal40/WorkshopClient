@@ -80,9 +80,20 @@
     >
       You must enter a value
     </p>
+    <p
+      *ngIf="
+        statusForm.controls.langId.errors?.pattern &&
+        statusForm.controls.langId.touched
+      "
+      class="help is-danger"
+    >
+      You have to enter a valid value
+    </p>
   </div>
 
   <div class="btn-wrapper">
-    <button type="submit" class="button is-info">Check Status</button>
+    <button [disabled]="!statusForm.valid" type="submit" class="button is-info">
+      Check Status
+    </button>
   </div>
 </form>
