@@ -1,0 +1,88 @@
+<form class="container" (submit)="onSubmit($event)" [formGroup]="statusForm">
+  <div class="field">
+    <label class="label">Dial Number</label>
+    <div class="control">
+      <input
+        formControlName="dial"
+        class="input"
+        [ngClass]="{
+          'is-danger':
+            (statusForm.controls.dial.errors?.pattern &&
+              statusForm.controls.dial.touched) ||
+            (statusForm.controls.dial.errors?.required &&
+              statusForm.controls.dial.touched)
+        }"
+        type="text"
+        placeholder="Dial Number"
+      />
+    </div>
+    <p
+      *ngIf="
+        statusForm.controls.dial.errors?.pattern &&
+        statusForm.controls.dial.touched
+      "
+      class="help is-danger"
+    >
+      You've entered a wrong number
+    </p>
+    <p
+      *ngIf="
+        statusForm.controls.dial.errors?.required &&
+        statusForm.controls.dial.touched
+      "
+      class="help is-danger"
+    >
+      You must enter a value
+    </p>
+  </div>
+
+  <div class="field">
+    <label class="label">Source Id</label>
+    <div class="control">
+      <input
+        [ngClass]="{
+          'is-danger':
+            statusForm.controls.sourceId.errors?.required &&
+            statusForm.controls.sourceId.touched
+        }"
+        formControlName="sourceId"
+        class="input"
+        type="text"
+        placeholder="Dial Number"
+      />
+    </div>
+    <p
+      *ngIf="
+        statusForm.controls.sourceId.errors?.required &&
+        statusForm.controls.sourceId.touched
+      "
+      class="help is-danger"
+    >
+      You must enter a value
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Language Id</label>
+    <div class="control">
+      <input
+        formControlName="langId"
+        class="input"
+        type="text"
+        placeholder="Dial Number"
+      />
+    </div>
+    <p
+      *ngIf="
+        statusForm.controls.langId.errors?.required &&
+        statusForm.controls.langId.touched
+      "
+      class="help is-danger"
+    >
+      You must enter a value
+    </p>
+  </div>
+
+  <div class="btn-wrapper">
+    <button type="submit" class="button is-info">Check Status</button>
+  </div>
+</form>
