@@ -1,9 +1,16 @@
 .main-container {
   display: grid;
-  place-items: center;
-  align-content: center;
+  align-content: flex-start;
+  justify-content: center;
   height: 100%;
 }
 .header {
   padding: 1em;
+}
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: orange;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OptionsList } from './Types';
+import { ErrorDoc, OptionsList } from './Types';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,13 @@ import { OptionsList } from './Types';
 })
 export class AppComponent {
   options: OptionsList[] = [];
+  errorDocument: ErrorDoc = { errorCode: '', errorMessage: '', status: '' };
+
+  takeErrorDoc(er: ErrorDoc) {
+    console.log(er);
+    this.errorDocument = er;
+  }
+
   takeOptions(options: OptionsList[]) {
     this.options = options;
   }

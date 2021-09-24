@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CheckStatusService } from '../services/check-status.service';
-import { OptionsList } from '../Types';
+import { ErrorDoc, OptionsList } from '../Types';
 
 @Component({
   selector: 'app-status-form',
@@ -10,6 +10,7 @@ import { OptionsList } from '../Types';
 })
 export class StatusFormComponent implements OnInit {
   @Output() optionsAvailable = new EventEmitter<OptionsList[]>();
+  @Output() errorDocumentAvailable = new EventEmitter<ErrorDoc>();
   statusForm = new FormGroup({
     dial: new FormControl('', [
       Validators.required,
@@ -29,6 +30,7 @@ export class StatusFormComponent implements OnInit {
       .checkStatus(this.statusForm.value)
       .subscribe((value) => {
         this.optionsAvailable.emit(value?.BucketInfo[0].optionsList);
+        this.errorDocumentAvailable.emit(value?.errorDoc);
         console.log(value);
       });
   }

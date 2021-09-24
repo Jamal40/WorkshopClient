@@ -19,7 +19,7 @@ export interface ErrorDoc {
 
 export interface CheckDataProfileStatus_out {
   BucketInfo: BucketInfo[];
-  errorDoc: ErrorDoc[];
+  errorDoc: ErrorDoc;
 }
 
 export interface CheckDataProfileStatus_in {

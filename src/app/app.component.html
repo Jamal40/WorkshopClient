@@ -1,6 +1,13 @@
-<div class="header">
-  <app-buttons [options]="options"></app-buttons>
-</div>
 <div class="main-container">
-  <app-status-form (optionsAvailable)="takeOptions($event)"></app-status-form>
+  <div class="header">
+    <app-buttons [options]="options"></app-buttons>
+  </div>
+  <app-status-form
+    (errorDocumentAvailable)="takeErrorDoc($event)"
+    (optionsAvailable)="takeOptions($event)"
+  ></app-status-form>
+
+  <h2>
+    {{ this.errorDocument.errorMessage }}
+  </h2>
 </div>
