@@ -61,10 +61,18 @@
       You must enter a value
     </p>
   </div>
+
   <div class="field">
     <label class="label">Language Id</label>
     <div class="control">
       <input
+        [ngClass]="{
+          'is-danger':
+            (statusForm.controls.langId.errors?.pattern &&
+              statusForm.controls.langId.touched) ||
+            (statusForm.controls.langId.errors?.required &&
+              statusForm.controls.langId.touched)
+        }"
         formControlName="langId"
         class="input"
         type="text"

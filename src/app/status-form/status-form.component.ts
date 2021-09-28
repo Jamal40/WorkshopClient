@@ -26,13 +26,14 @@ export class StatusFormComponent implements OnInit {
 
   onSubmit(event: any) {
     event.preventDefault();
-    this.checkStatusService
-      .checkStatus(this.statusForm.value)
-      .subscribe((value) => {
-        this.optionsAvailable.emit(value?.BucketInfo[0].optionsList);
-        this.errorDocumentAvailable.emit(value?.errorDoc);
-        console.log(value);
-      });
+    if (this.statusForm.valid) {
+      this.checkStatusService
+        .checkStatus(this.statusForm.value)
+        .subscribe((value) => {
+          this.optionsAvailable.emit(value?.BucketInfo[0].optionsList);
+          this.errorDocumentAvailable.emit(value?.errorDoc);
+        });
+    }
   }
   ngOnInit(): void {}
 }

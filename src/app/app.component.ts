@@ -11,7 +11,6 @@ export class AppComponent {
   errorDocument: ErrorDoc = { errorCode: '', errorMessage: '', status: '' };
 
   takeErrorDoc(er: ErrorDoc) {
-    console.log(er);
     this.errorDocument = er;
   }
 

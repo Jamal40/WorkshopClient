@@ -8,3 +8,10 @@
 label {
   color: white;
 }
+
+input {
+  border-width: 2px;
+}
+input:focus {
+  border-color: #90a1e9;
+}
